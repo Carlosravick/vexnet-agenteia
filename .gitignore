@@ -1,0 +1,10 @@
+venv
+.env
+teste_api.py
+__pycache__
+*.pyc
+*.log
+*.tmp
+.vscode/
+.idea/
+*.iml
