@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  # Nome do nosso serviço
+  whatsapp-agent:
+    # Constrói a imagem a partir do Dockerfile na pasta atual ('.')
+    build: .
+    # Nome do contêiner que será criado
+    container_name: vexnet-whatsapp-agent
+    # Carrega as variáveis de ambiente do arquivo .env para dentro do contêiner
+    env_file:
+      - .env
+    # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina
+    ports:
+      - "8000:8000"
+    # Reinicia o contêiner automaticamente a menos que ele seja parado manualmente
+    restart: unless-stopped

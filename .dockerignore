@@ -1,0 +1,23 @@
+# Ignorar a pasta do Git e o .gitignore
+.git
+.gitignore
+
+# Ignorar ambiente virtual
+venv/
+.venv/
+
+# Ignorar caches do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de configuração local e segredos
+.env
+*.env.*
+# ADICIONA A EXCEÇÃO para incluir o .env.example na imagem, se necessário
+!.env.example
+
+# Ignorar arquivos de configuração de IDEs
+.idea/
+.vscode/

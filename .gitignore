@@ -1,10 +1,25 @@
-venv
+# Ambientes Virtuais do Python
+venv/
+.venv/
+
+# Arquivos de Segredos e Configuração de Ambiente
+# Ignora o arquivo .env principal e todas as suas variações (ex: .env.local)
 .env
-teste_api.py
-__pycache__
+*.env.*
+# ADICIONA A EXCEÇÃO para o arquivo de exemplo, que é seguro e deve ir para o GitHub
+!.env.example
+
+# Caches e arquivos compilados do Python
+__pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Arquivos de Log e Temporários
 *.log
 *.tmp
+
+# Configurações de IDEs
 .vscode/
 .idea/
 *.iml
