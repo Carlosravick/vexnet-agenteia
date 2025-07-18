@@ -1,17 +1,21 @@
 version: '3.8'
 
 services:
-  # Nome do nosso serviço
   whatsapp-agent:
-    # Constrói a imagem a partir do Dockerfile na pasta atual ('.')
     build: .
-    # Nome do contêiner que será criado
     container_name: vexnet-whatsapp-agent
-    # Carrega as variáveis de ambiente do arquivo .env para dentro do contêiner
     env_file:
       - .env
-    # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina
     ports:
       - "8000:8000"
-    # Reinicia o contêiner automaticamente a menos que ele seja parado manualmente
+    depends_on:
+      - dynamodb-local
+    restart: unless-stopped
+
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    container_name: dynamodb-local
+    ports:
+      - "8001:8000"
+    command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
     restart: unless-stopped
